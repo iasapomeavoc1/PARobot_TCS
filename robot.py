@@ -1,4 +1,5 @@
 from telnetlib import Telnet
+import time
 
 class Robot():
 	#Standard Command Set, not exhaustive
@@ -154,10 +155,13 @@ class Robot():
 			self.saved_positions[pos_label] = position[1:]
 		print("Saved %s at %s"%(pos_label,position))
 
-	def teach_profile():
+	def teach_profile(self,sample_rate):
+		# can develop this to teach a position profile at a specified sample rate. 
+		# need to figure out how to store this profile, probably an array in a dict similar to the saved_position dict
 		try:
 			while True:
-				self.get_current_position()
+				position = self.get_current_position()
+				time.sleep(sample_rate)
 		except KeyboardInterrupt:
 			pass
 
@@ -166,9 +170,11 @@ class Robot():
 		loc = self.get_station_loc(station_index)
 
 	def load_position():
+		#load a position from an external file. can be a .csv and use pandas 
 		pass
 
 	def transfer_pallet(self,pallet,station_destination):
+		#requires more definition on pallets, and functions for movements to pick and place pallets
 		pass
 
 
