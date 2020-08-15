@@ -20,6 +20,7 @@ class Robot():
 	DESTJ = "DestJ"
 	MOVE = "Move"
 	HALT = "halt"
+	WAIT = "waitForEOM"
 	ZEROTORQUE = "zeroTorque"
 
 	#PARobot Command Set, not exhaustive
@@ -168,6 +169,8 @@ class Robot():
 	def move_to_station(self,station_index):
 		self.attach() #attach robot to be able to use motion commands
 		loc = self.get_station_loc(station_index)
+		#should be able to use location data from get_station_loc and use it with MOVE or MOVEC or MOVEJ.
+		#need to determine how to store the Cartesian or Angle data, probably numpy arrays
 
 	def load_position():
 		#load a position from an external file. can be a .csv and use pandas 
