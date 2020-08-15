@@ -1,9 +1,5 @@
 from telnetlib import Telnet
 
-#Commands
-
-
-
 class Robot():
 	#Standard Command Set, not exhaustive
 	ATTACH = "attach"
